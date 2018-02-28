@@ -18,7 +18,8 @@ docker container run -d --name webserver -p 8080:80 httpd
 docker container run -d --name proxy -p 80:80 nginx
 
 # Get mysql password
-docker container logs mysql
+docker container logs db
+# e.g. GENERATED ROOT PASSWORD: humib5SaeyaexooriedishohSooGhudu
 
 # Test ports -
 # nginx
@@ -26,8 +27,16 @@ curl localhost
 # httpd
 curl localhost:8080
 
+#
 # Cleanup
+#
+# List all running containers
+docker container ls
+# Stop
 docker container stop proxy webserver db
+# List all 
+docker container ls -a
+# Remove
 docker container rm proxy webserver db
 
 ```
